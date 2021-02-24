@@ -4,7 +4,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20 # 40
 #SBATCH --time=00:10:10 # 40:00:00
-#SBATCH --mem=1G # 160G
+#SBATCH --mem=10G # 160G
 #SBATCH --account=project_2001659
 
 module load maestro parallel
