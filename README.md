@@ -1,4 +1,5 @@
-# Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem.
+# HTVS 
+Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem.
 
 ## Simple parallelisation
 
