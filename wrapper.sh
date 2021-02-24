@@ -22,5 +22,5 @@ file=$(echo $fname | cut -d'.' -f 1)
 ligprep -isd $fname -omae $file.mae  -LOCAL -NOJOBID
 
 # Move output from SSD to /scratch
-cp "$file".mae  $output
+rm $fname && mv "$file".mae  $output
 
