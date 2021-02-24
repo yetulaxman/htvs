@@ -1,5 +1,5 @@
 # HTVS 
-Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem.
+Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem etc.
 
 ## Simple parallelisation
 
@@ -16,7 +16,7 @@ to view the resuts
 ```
 ls -l data/*.mae
 ```
-
+> Note: This batch script can also  work if you change scratch drive to use fast local drive (--gres=nvme:10)
 ## Nextflow approach
 
 
