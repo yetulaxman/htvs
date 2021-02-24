@@ -16,7 +16,7 @@ to view the resuts
 ```
 ls -l data/*.mae
 ```
-> Note: This batch script can also  work if you request local fast drive (--gres=nvme:10) 
+> Note: This batch script can also  work if you request local fast drive in slurm directives(--gres=nvme:10) 
 ## simple test case with  Nextflow approach
 
 
