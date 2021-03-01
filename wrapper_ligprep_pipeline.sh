@@ -1,5 +1,5 @@
 #!/bin/bash
-# $1 is absolute input file,/scratch/projects../... 
+# $1 is absolute input file path,../scratch/projects../... 
 fpath=${1%/*}
 fname=`basename $1`
 file=$(echo $fname | cut -d'.' -f 1) # file name without extension to create output dir with the name
