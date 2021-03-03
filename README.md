@@ -1,7 +1,7 @@
 # Optimise HTVS workflows
 Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem etc.
 
-## Ligprep code parallelisation with production flags
+## Ligprep pipeline parallelisation with production flags
 
 
 ```
