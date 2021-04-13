@@ -1,4 +1,4 @@
-# non-wrapper helper scripts for running Ligprep HTVS experiments when pre-split files are in different folder
+ non-wrapper helper scripts for running Ligprep HTVS experiments when pre-split files are in different folder
 
 **usage:**
 ```
