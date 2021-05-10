@@ -5,14 +5,14 @@ export PROJAPPL=/projappl/project_xxxx
 git clone https://github.com/chemprop/chemprop.git
 cd chemprop
 module load bioconda
-<!--
+
 # order of channels is changed (pytorch in first place) and run on the gpu node (may not be necessary)
 # change  - rdkit=v2021.03.1
 # cudatoolkit-11.1;
 # PyTorch = 1.8.0
 # python=3.8
 # this step was run in gpu node download an dinstalltion of software pip errors -> agina run on login node
--->
+
 conda env create -f environment.yml
 
 conda activate chemprop
