@@ -1,48 +1,30 @@
-# Optimise HTVS workflows
-Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem etc.
-
-## Ligprep pipeline parallelisation with production flags
-
+## Installation of chemprop
 
 ```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch htvs_pipeline.sh
+export PROJAPPL=/projappl/project_xxxx
+git clone https://github.com/chemprop/chemprop.git
+cd chemprop
+module load bioconda
+<!--
+# order of channels is changed (pytorch in first place) and run on the gpu node (may not be necessary)
+# change  - rdkit=v2021.03.1
+# cudatoolkit-11.1;
+# PyTorch = 1.8.0
+# python=3.8
+# this step was run in gpu node download an dinstalltion of software pip errors -> agina run on login node
+-->
+conda env create -f environment.yml
 
+conda activate chemprop
+pip install -e .
 ```
 
-to view the resuts
-
+## test GPU-version of chemprop
 ```
-ls -l data_SMILES
-```
-## simple test case with parallelisation
-
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch htvs_parallel.sh
-
-```
-
-to view the resuts
-
-```
-ls -l data/*.mae
-```
-> Note: This batch script can also  work if you request local fast drive in slurm directives(--gres=nvme:10) 
-## simple test case with  Nextflow approach
-
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch job_nf.sh 
-```
-
-to view the resuts
-
-```
-ls -l results_mae/
+srun -A project_xxxx -p gputest --gres=gpu:v100:1,nvme:50 -t 15 -c 10 --mem 96G --pty bash
+export PROJAPPL=/projappl/project_xxxx
+module load bioconda
+source activate chemprop
+cd /scratch/project_xxxx/chemprop_test
+chemprop_train --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints --gpu 0
 ```
