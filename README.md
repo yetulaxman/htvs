@@ -12,7 +12,8 @@ git clone https://github.com/chemprop/chemprop.git
 cd chemprop
 module load bioconda
 
-# order of channels is changed (pytorch in first place) and run (conda env create command) on the gpu node (may not be necessary)
+# order of channels is changed (pytorch in first place) and run (conda env create command) on the gpu node until you get some pip issues (may not be necessary) an 
+# run the rest of installation in login node
 # change  - rdkit=v2021.03.1
 # cudatoolkit-11.1;
 # PyTorch = 1.8.0
