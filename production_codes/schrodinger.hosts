@@ -1,0 +1,9 @@
+name:        localhost
+tmpdir:      /scratch/project_2004075/yetukuri
+processors:  128
+
+name:        test
+queue:       SLURM2.1
+qargs:       -p test -t 00:10:00 -n %NPROC% --account=project_2001659
+host:        mahti-login1.csc.fi
+processors:  4
