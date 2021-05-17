@@ -22,5 +22,5 @@ echo ""$fname".maegz" >> "$fname"_phase_splice.list
 mkdir -p "$fname"_database
 
 $SCHRODINGER/ligprep -kp -retain  -lab -epik -W e,-ph,7.0,-pht,1.5,-ms,16 -i 2 -t 8 -s 4 -ismi ${SLURM_SUBMIT_DIR}/data_SMILES/"$fname".smi -omae "$fname".maegz -HOST localhost:127 -NSTRUCT 10000 -JOBNAME Legprep_test -LOCAL -WAIT
-$SCHRODINGER/phase_database ${SLURM_SUBMIT_DIR}/"$fname"_database/"$fname".phdb splice "$fname"_phase_splice.list  -new -fmt int  -JOB "$fname"_phase_splice -HOST localhost:127 -TMPDIR $PWD -WAIT
+$SCHRODINGER/phase_database ${SLURM_SUBMIT_DIR}/"$fname"_database/"$fname".phdb splice "$fname"_phase_splice.list  -new -fmt int  -JOB "$fname"_phase_splice -HOST localhost:127 -WAIT
 $SCHRODINGER/phase_database ${SLURM_SUBMIT_DIR}/"$fname"_database/"$fname".phdb revise "$fname"_revise -confs auto -max 1 -sample rapid -HOST localhost:127 -WAIT
