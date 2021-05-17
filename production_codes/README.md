@@ -1,5 +1,6 @@
 ## Helper scripts for preprocessing of Enamine REAL DB on Mahti
-make sure to configure your scrondinger.hosts file. 
+make sure to configure your scrondinger.hosts file. For localhost setting, tmdir must be set to scratch to avoid errors (fizzled-issue) in production environement.
+
 ### Test case: Run production code with 10M records on Mahti
 
 ```
@@ -11,5 +12,5 @@ sbatch htvs_pipeline_all_steps_test_10M.sh
 ### presently job submission is commented on the script
 ```
 bash prepare_jobs.sh
-
 ```
+### array job for submitting fixed number of simultaneous jobs on Puhti/Mahti
