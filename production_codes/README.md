@@ -1,4 +1,5 @@
-## Helper scripts for preprocessinG of Enamine REAL DB on Mahti
+## Helper scripts for preprocessing of Enamine REAL DB on Mahti
+make sure to configure your scrondinger.hosts file. 
 ### Test case: Run production code with 10M records on Mahti
 
 ```
