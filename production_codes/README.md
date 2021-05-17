@@ -9,9 +9,9 @@ sbatch htvs_pipeline_all_steps_test_10M.sh
 ```
 
 ### Automation: Run all the records in one Enaamine Real db file (~78 M) by splitting 10M a file and submit batch jobs for processing each split separately
-### presently job submission is commented in the script
+
 ```
-bash prepare_jobs.sh
+bash prepare_jobs.sh # presently, job submission is commented
 ```
 ### array job for submitting fixed number of simultaneous jobs on Puhti/Mahti
 
