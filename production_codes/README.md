@@ -15,9 +15,9 @@ bash prepare_jobs.sh # presently, job submission is commented
 ```
 ### array job for submitting fixed number of simultaneous jobs on Puhti/Mahti
 
-We may have constraints on number of jobs that we can submit on Mahti. So, use array job script to control the number jobs that are actually running. 
+We may have constraints on number of jobs that we can submit on Mahti. So, use array job script to submit all jobs while controling  the number simultaneous jobs that are actually running. 
 
 ```
 bash prepare_jobs.sh
-sbatch htvsprep_production_pipeline_array_Mahti.sh
+sbatch htvsprep_production_pipeline_array_Mahti.sh. # change the number of jobs 
 ```
