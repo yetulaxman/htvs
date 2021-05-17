@@ -1,4 +1,4 @@
-## helper scripts for preprocessin of Enamine REAL DB on Mahti
+## Helper scripts for preprocessinG of Enamine REAL DB on Mahti
 ### Test case: Run production code with 10M records on Mahti
 
 ```
