@@ -18,4 +18,6 @@ bash prepare_jobs.sh
 We may have constraints on number of jobs that we can submit on Mahti. So, use array job script to control the number jobs that are actually running. 
 
 ```
-sbatch 
+bash prepare_jobs.sh
+sbatch htvsprep_production_pipeline_array_Mahti.sh
+```
