@@ -1,13 +1,13 @@
 #!/bin/bash
 #SBATCH --partition=medium
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=128 # 40
-#SBATCH --time=36:00:00 # 40:00:00
+#SBATCH --ntasks-per-node=128 
+#SBATCH --time=36:00:00 
 #SBATCH --account=project_2004075
 #SBATCH --cpus-per-task=1
 #SBATCH --output=array_job_out_%A_%a.txt
 #SBATCH --error=array_job_err_%A_%a.txt
-#SBATCH --array=1-160%3
+#SBATCH --array=1-8%3
 
 
 module load exp/test-2021.1
