@@ -1,11 +1,14 @@
 split -l 10000000 -d -a 1  --additional-suffix=.smi Enamine_REAL_lead-like_randomized_00.smi  Enamine_REAL_file_1_part
-for filename in $PWD/*smi; do
-    file=$(echo $filename | cut -d'.' -f 1)
-    mkdir -p $file && mkdir -p $file/data_SMILES
-    cp  $filename $file/data_SMILES
-    cp  htvsprep_production_pipeline.sh $file/
-    cd $file
+mkdir -p temp && mv Enamine_REAL_lead-like_randomized* temp
+rm directories.txt && touch directories.txt
+for filename in *.smi; do
+    dir=$(echo $filename | cut -d'.' -f 1)
+    mkdir -p $dir && mkdir -p $dir/data_SMILES
+    echo $dir >> directories.txt
+    cp  $filename $dir/data_SMILES
+    cp  htvsprep_production_pipeline_all_steps.sh $dir/
+    cd $dir
     echo $PWD    
- #  bash htvsprep_production_pipeline.sh  data_SMILE/$filename
+  #  bash htvsprep_production_pipeline_all_steps.sh  data_SMILE/$filename
     cd -
 done
