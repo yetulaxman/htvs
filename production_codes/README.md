@@ -18,11 +18,10 @@ We may have constraints on running number of concurrent jobs that we can run on 
 sbatch htvsprep_production_pipeline_array_Mahti.sh. # change total number of jobs overall and maximum number of concurrent jobs as needed
 
 ```
-
-### Re-submission of failed jobs
+### Re-submission of a failed job
 For some if a job is failed, you can go to the directory of job and type the following command:
 
 ```
-sbatch htvs_pipeline_all_steps_test_10M.sh
+sbatch htvsprep_production_pipeline_array_Mahti.sh  data_SMILES/<SMILES_input file>
 
 ```
