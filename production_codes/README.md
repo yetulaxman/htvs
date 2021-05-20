@@ -1,5 +1,7 @@
-## Helper scripts for preprocessing of Enamine REAL database on Mahti
-Make sure to configure your scrondinger.hosts file. In the hosts file, *tmpdir* must be set to scratch to avoid errors (e.g., job fizzled issues) in production environement.
+### Helper scripts for preprocessing of Enamine REAL database on Mahti
+
+### Configure Scrondinger.hosts file
+Make sure to configure your Scrondinger.hosts file in your home directory on Mahti. In the hosts file, *tmpdir* must be set to scratch to avoid errors (e.g., job fizzled issues) in production environement. Please check example hosts file in the current github folder for more details.
 
 ### Test case: Run production code with 10M records on Mahti
 
