@@ -12,7 +12,7 @@ bash prepare_jobs.sh # normal job submission is commented in script and use arra
 ```
 ### Array job script for submitting fixed number of simultaneous jobs on Mahti
 
-We may have constraints on running number of concurrent jobs that we can run on Mahti. So, use array job script to submit all jobs while controling  the number simultaneous jobs that are actually running.  This scripst submits 8 jobs of which two will be running at a time. See more details on array jobs at [CSC docs page](https://docs.csc.fi/computing/running/array-jobs/). Submit array job as below:
+We may have constraints on running number of concurrent jobs that we can run on Mahti. So, use array job script to submit all jobs while controling  the number simultaneous jobs that are actually running.  This script submits 8 jobs of which two will be running at a time. See more details on array jobs at [CSC docs page](https://docs.csc.fi/computing/running/array-jobs/). Submit array job as below:
 
 ```
 sbatch htvsprep_production_pipeline_array_Mahti.sh. # change total number of jobs overall and maximum number of concurrent jobs as needed
