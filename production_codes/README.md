@@ -22,6 +22,6 @@ sbatch htvsprep_production_pipeline_array_Mahti.sh. # change total number of job
 For some if a job is failed, you can go to the directory of job and type the following command:
 
 ```
-sbatch htvsprep_production_pipeline_array_Mahti.sh  data_SMILES/<SMILES_input file>
+sbatch htvsprep_production_pipeline_Mahti.sh data_SMILES/<SMILES_input file>
 
 ```
