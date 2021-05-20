@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --output=array_job_out_%A_%a.txt
 #SBATCH --error=array_job_err_%A_%a.txt
-#SBATCH --array=1-8%3
+#SBATCH --array=1-8%2
 
 
 module load exp/test-2021.1
