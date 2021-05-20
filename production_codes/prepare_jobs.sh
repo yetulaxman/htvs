@@ -7,7 +7,7 @@ for filename in *.smi; do
     mkdir -p $dir && mkdir -p $dir/data_SMILES
     echo $dir >> directories.txt
     cp  $filename $dir/data_SMILES
-    cp  htvsprep_production_pipeline_all_steps.sh $dir/
+    cp  htvsprep_production_pipeline_Mahti.sh $dir/
     cd $dir
     echo $PWD    
   #  bash htvsprep_production_pipeline_all_steps.sh  data_SMILE/$filename
