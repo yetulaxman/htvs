@@ -1,8 +1,14 @@
 ### Helper scripts for preprocessing of Enamine REAL database on Mahti
 
-### Configure Scrondinger.hosts file
+### Configure Schrondinger.hosts file
 Make sure to configure your Scrondinger.hosts file in your home directory on Mahti. In the hosts file, *tmpdir* must be set to scratch to avoid errors (e.g., job fizzled issues) in production environement. Please check example hosts file in the current github folder for more details.
 
+
+### Prepare job directories 
+Split REAL ENAMINE DB files into 10M chunks and create a folder for each  chunk. Inside the each folder, SMILES file is placed under the folder, data_SMILES. The script  
+```
+bash prepare_jobs.sh 
+```
 ### Test case: Run production code with 10M records on Mahti
 
 ```
