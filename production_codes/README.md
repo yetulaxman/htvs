@@ -5,7 +5,7 @@ Make sure to configure your schrodinger.hosts file in your home directory on Mah
 
 
 ### Prepare job directories 
-Organising job folders is a good idea to manage resulting files as well as error handling later if needed. Split REAL ENAMINE DB files into 10M chunks (Only on example file is provided in script, follow similar split for rest of the files) and create a folder for each chunk. Inside of each folder, SMILES input file needed for each job is created under directory, data_SMILES.  Run bash scripts as below for job preparation:
+Organising job folders is a good idea to manage resulting files as well as error handling later if needed. Split REAL ENAMINE DB files into 10M chunks (Only one example file is provided in script, follow similar splitting for  the rest of Enamine REAL db files) and create a folder for each chunk. Inside of each job folder, SMILES input file needed for each job is created under directory, data_SMILES.  Run bash script as below for job preparation:
 ```
 bash prepare_jobs.sh # normal job submission is commented in script and use array job script instead.
 
