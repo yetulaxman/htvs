@@ -1,5 +1,5 @@
 name:        localhost
-tmpdir:      /scratch/project_2004075/yetukuri
+tmpdir:      /dev/shm
 processors:  128
 
 name:        test
