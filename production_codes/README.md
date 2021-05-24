@@ -1,7 +1,7 @@
 ### Helper scripts for pre-processing of Enamine REAL database on Mahti
 
 ### Configure schrodinger.hosts file
-Make sure to configure your schrodinger.hosts file in your home directory on Mahti. In the hosts file, *tmpdir* path in localhost  must be set to scratch directory to avoid errors (e.g., job fizzled issues) in production environement. Please check example hosts file in current github folder for more details.
+Make sure to configure your schrodinger.hosts file in your job directory where you submit your batch job on Mahti. In the hosts file, *tmpdir* path in localhost  must be set to ram directory (i.e., /dev/shm) in production environement. Please check example hosts file in current github folder for more details.
 
 
 ### Prepare job directories 
@@ -16,12 +16,5 @@ We may have constraints on running number of concurrent jobs that we can run on 
 
 ```
 sbatch htvsprep_production_pipeline_array_Mahti.sh. # change total number of jobs overall and maximum number of concurrent jobs as needed
-
-```
-### Re-submission of a failed job
-For some reason if a job fails, you can go to the directory of the failed job and run the following command:
-
-```
-sbatch htvsprep_production_pipeline_Mahti.sh data_SMILES/<SMILES_input file>
 
 ```
