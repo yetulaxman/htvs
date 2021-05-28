@@ -1,13 +1,13 @@
 ### Helper scripts for pre-processing of Enamine REAL database on Mahti
 
 ### Configure schrodinger.hosts file
-Make sure to configure your schrodinger.hosts file in your **job directory** where you submit your batch job on Mahti. In the hosts file, *tmpdir* path in localhost  must be set to ram directory (i.e., /dev/shm) in production environement. Please check example hosts file in current github folder for more details.
+Make sure to configure your schrodinger.hosts file in your **job directory** where you submit your batch job in Mahti. In your hosts file, *tmpdir* path in localhost must be set to ram directory (i.e., /dev/shm) in production environement. Please check example hosts file in current github folder for more details.
 
 
 ### Prepare job directories 
 Organising job folders is a good idea to manage resulting files as well as error handling later if needed. Split REAL ENAMINE DB files into 10M chunks (Only one example file is provided in script, follow similar splitting for  the rest of Enamine REAL db files) and create a folder for each chunk. Inside of each job folder, SMILES input file needed for each job is created under the directory, data_SMILES.  Run bash script as below for job preparation:
 ```
-bash prepare_jobs.sh # normal job submission is commented in script and use array job script instead.
+bash prepare_jobs.sh # normal batch job part is commented in this script and use array job script instead for it.
 
 ```
 ### Array job script for submitting fixed number of simultaneous jobs on Mahti
