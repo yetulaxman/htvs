@@ -1,7 +1,7 @@
 ### Helper scripts for pre-processing of Enamine REAL database on Mahti
 
 ### Configure schrodinger.hosts file
-Make sure to configure your schrodinger.hosts file in your job directory where you submit your batch job on Mahti. In the hosts file, *tmpdir* path in localhost  must be set to ram directory (i.e., /dev/shm) in production environement. Please check example hosts file in current github folder for more details.
+Make sure to configure your schrodinger.hosts file in your **job directory** where you submit your batch job on Mahti. In the hosts file, *tmpdir* path in localhost  must be set to ram directory (i.e., /dev/shm) in production environement. Please check example hosts file in current github folder for more details.
 
 
 ### Prepare job directories 
