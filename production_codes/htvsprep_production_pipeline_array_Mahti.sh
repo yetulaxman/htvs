@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --output=array_job_out_%A_%a.txt
 #SBATCH --error=array_job_err_%A_%a.txt
-#SBATCH --array=3-3%1    # run 3rd chunk only
+#SBATCH --array=1-8%2    # run 2 chunks at a time out of all 8 jobs on cluster
 
 
 module load exp/test-2021.1
