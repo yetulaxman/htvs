@@ -37,12 +37,13 @@ python3
 import torch
 print(torch.cuda.is_available())
 print(torch.version.cuda)
+#use control+D to come out of python terminal and then 'exit' command to come out of container
 
 ```
 
 ### Finally test chemprop with a small dataset which is included in the allas dump
 
 ```
-cd chemprop_test
+# cd chemprop_test
 singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif chemprop_train --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints --gpu 0
 ```
