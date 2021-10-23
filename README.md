@@ -1,4 +1,4 @@
-## Singualarity container for [chemprop](https://github.com/chemprop/chemprop.git)  software
+## Singularity container for [chemprop](https://github.com/chemprop/chemprop.git)  software
 This version of singularity container is based on the chemprop v1.3.1 as available in [conda-forge](https://anaconda.org/conda-forge/chemprop/) channel.
 
 ### Build singularity image
@@ -28,9 +28,11 @@ srun -A project_xxxx -p gputest --gres=gpu:v100:1,nvme:50 -t 15 -c 10 --mem 96G 
 nvidia-smi
 ```
 
-Test if pytorch is working properly on GPU node
+Test if pytorch is loaded properly inside the container on GPU node
 
 ```
+cd chemprop_test
+singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif bash
 python3
 import torch
 print(torch.cuda.is_available())
@@ -38,11 +40,9 @@ print(torch.version.cuda)
 
 ```
 
-### Finally test with small dataset included in the allas dump
+### Finally test chemprop with a small dataset which is included in the allas dump
 
 ```
 cd chemprop_test
 singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif chemprop_train --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints --gpu 0
-```
-
 ```
