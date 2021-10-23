@@ -1,48 +1,47 @@
-# Optimise HTVS workflows
-Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem etc.
+## Singualarity container for [chemprop](git clone https://github.com/chemprop/chemprop.git)  software
+This version of singularity container is based on the chemprop v1.3.1 as available in [conda-forge](https://anaconda.org/conda-forge/chemprop/) channel.
 
-## Ligprep pipeline parallelisation with production flags
+### Build singularity image
 
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch htvs_pipeline.sh
+All the conda packages needed for chemprop software and their dependencies are  compiled in environment.yaml file. This is intended to work on GPU nodes on Puhti.
+One can build singularity images using the following command:
 
 ```
-
-to view the resuts
-
-```
-ls -l data_SMILES
-```
-## simple test case with parallelisation
-
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch htvs_parallel.sh
+sudo singularity build chemprop_puhti_v1.3.1_final.sif chemprop.def
 
 ```
 
-to view the resuts
-
+### Download chemprop singualarity images from allas
+Download singularity image from allas object storage
 ```
-ls -l data/*.mae
-```
-> Note: This batch script can also  work if you request local fast drive in slurm directives(--gres=nvme:10) 
-## simple test case with  Nextflow approach
-
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch job_nf.sh 
+wget https://a3s.fi/chemprop_singularity/chemprop_test.tar.gz
+tar -xavf chemprop_test.tar.gz 
+cd chemprop_test
 ```
 
-to view the resuts
+### Testing chemprop singularity container on GPU node
+
+Access interactive GPUtest node on Puhti for testing chemprop as below:
 
 ```
-ls -l results_mae/
+srun -A project_xxxx -p gputest --gres=gpu:v100:1,nvme:50 -t 15 -c 10 --mem 96G --pty bash
+nvidia-smi
+```
+
+Test if pytorch is working properly on GPU node
+
+```
+python3
+import torch
+print(torch.cuda.is_available())
+print(torch.version.cuda)
+
+```
+
+```
+## Finally test with small dataset included in the allas dump
+```
+cd chemprop_test
+singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif chemprop_train --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints --gpu 0
+
 ```
