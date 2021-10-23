@@ -6,11 +6,10 @@ Laxmana Yetukuri <laxmana.yetukuri@csc.fi>
 
 %setup
  cp environment.yml /tmp/environment.yml
-
+ 
 %environment
-
     export PATH="/opt/conda/envs/chemprop/bin:/opt/conda/condabin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
+    
 %post
   apt-get -y update --allow-releaseinfo-change
   apt-get install -y vim
