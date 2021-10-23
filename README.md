@@ -46,4 +46,6 @@ print(torch.version.cuda)
 ```
 # cd chemprop_test
 singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif chemprop_train --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints --gpu 0
+
+# GPU test run time: Elapsed time = 0:01:38
 ```
