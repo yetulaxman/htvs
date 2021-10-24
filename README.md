@@ -1,9 +1,9 @@
 ## Singularity container for [chemprop](https://github.com/chemprop/chemprop.git)  software
-This version of singularity container is based on the chemprop v1.3.1 as available in [conda-forge](https://anaconda.org/conda-forge/chemprop/) channel.
+This version of singularity container is based on the chemprop (v1.3.1) software as available in [conda-forge](https://anaconda.org/conda-forge/chemprop/) channel.
 
 ### Build singularity image
 
-All dependent conda/pip packages needed for chemprop software are  compiled in environment.yaml file which is a slightly modified version of yaml file as availabe in the chemprop github repository. This is intended to work on GPU nodes on Puhti.
+All dependent conda/pip packages needed for chemprop software are  compiled in environment.yaml file which is a slightly modified version of yaml file as availabe in the chemprop github repository. This is intended to work on GPU nodes on CSC HPC systems (Tested on Puhti and can work in Mahti/Lumi).
 
 One can build singularity image using the following command:
 
@@ -33,7 +33,7 @@ Test if pytorch is loaded properly inside the container on GPU node
 ```
 cd chemprop_test
 singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif bash
-python3
+python3  # invoke python terminal
 import torch
 print(torch.cuda.is_available())
 print(torch.version.cuda)
@@ -41,12 +41,12 @@ print(torch.version.cuda)
 
 ```
 
-### Finally test chemprop with a small dataset which is included in the allas dump
+### Finally test containerised chemprop software with a small dataset which is included in the allas dump
 
 ```
 # cd chemprop_test
 singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif chemprop_train --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints --gpu 0
 
-# GPU test run time: Elapsed time = 0:01:38
+# On GPU node, Elapsed time = 0:01:38
 ```
 
