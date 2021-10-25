@@ -41,7 +41,7 @@ print(torch.version.cuda)
 
 ```
 
-### Finally test containerised chemprop software with a small dataset which is included in the allas dump
+Finally test containerised chemprop software with a small dataset which is included in the allas dump
 
 ```
 # cd chemprop_test
