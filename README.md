@@ -28,7 +28,7 @@ srun -A project_xxxx -p gputest --gres=gpu:v100:1,nvme:50 -t 15 -c 10 --mem 96G 
 nvidia-smi
 ```
 
-Test if pytorch is loaded properly inside the container on GPU node
+Test if pytorch is loaded properly inside of container on GPU node
 
 ```
 cd chemprop_test
