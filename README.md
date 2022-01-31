@@ -39,9 +39,11 @@ ssh yourcscusername@puhti.csc.fi
 > Note: 
 
  - If you're connecting to Puhti for the first time, SSH client will ask you whether you trust the authenticity of the host. You need to accept for the first time.
- - For light-weight graphic rendering, use X11-tunneling to your ssh-connection (On Mac and Linux) by adding `-X` or `-Y` to your command (on Windows, MobaXterm actually will tunnel the connection). For heavy graphic usage, you can consider using [Puhti web interface](https://docs.csc.fi/computing/webinterface/) or [Nomachine](https://docs.csc.fi/apps/nomachine/).
+ - For light-weight graphic rendering, use X11-tunneling to your ssh-connection (On Mac and Linux) by adding `-X` or `-Y` to your command (on Windows, MobaXterm actually will tunnel the connection). For heavy graphic usage, you can consider using [Puhti web interface](https://docs.csc.fi/computing/webinterface/) or [Nomachine](https://docs.csc.fi/apps/nomachine/). 
+
+You can deploy your job as an interactive or batch job as shown below:
  
-### Deploying ImageJ/Fiji on Puhti as an interactive job 
+### Option 1:Deploying ImageJ/Fiji on Puhti as an interactive job 
 
 Navigate to the scratch directiory on Puhti
 
@@ -77,13 +79,13 @@ singularity_wrapper exec fiji_dec_plugins.sif  ImageJ-linux64 --headless --conso
 Download singularity image from allas object storage as before
 
 ```bash
+cd /scratch/project_xxxx/
 # Download singularity image from allas object storage
 wget https://a3s.fi/Fiji/fiji_tutorial.tar.gz
 tar -xavf fiji_tutorial.tar.gz
-cd fiji_tutorial
 ```
 
-Lanuch  batch job as below:
+You can copy the following script to a file e.g., imagej.sh
 
 ```bash
 #!/bin/bash
@@ -95,8 +97,12 @@ Lanuch  batch job as below:
 #SBATCH --cpus-per-task=4
 #SBATCH --partition=small
 
-b="WellC003@/scratch/project_2001659/yetukuri/Michael_UTU/2019-02-27_001@10"
+b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"
 singularity_wrapper exec fiji_dec_plugins.sif ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b                           
 ```
+submit yiur job 
 
+```bash
+sbatch imagej.sh
+```
 
