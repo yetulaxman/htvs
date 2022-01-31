@@ -86,12 +86,12 @@ wget https://a3s.fi/Fiji/fiji_tutorial.tar.gz
 tar -xavf fiji_tutorial.tar.gz
 ```
 
-You can copy the following script to a file e.g., imagej.sh
+You can copy the following script to a file e.g., imagej.sh. Make sure to use proper project name in `imagej.sh` file (i.e., update the right project number for  `project_xxxx` )   
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=myTest
-#SBATCH --account=<project_xxxx>
+#SBATCH --account= project_xxxx
 #SBATCH --time=02:00:00
 #SBATCH --mem-per-cpu=4G
 #SBATCH --ntasks=1
