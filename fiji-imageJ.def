@@ -1,0 +1,29 @@
+BootStrap: docker
+From: ubuntu:21.04
+
+%environment
+    FIJIPATH=/opt/fiji/Fiji.app
+    export PATH=$FIJIPATH:$PATH
+
+
+%runscript
+  ImageJ-linux64 "$@"
+
+%post
+   apt -y update
+
+   apt install -y unzip wget build-essential git software-properties-common
+   apt install -y libxi6 libxrender1 libxtst6 libfreetype6 x-window-system
+   cd /tmp
+    wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
+   unzip -d /opt/fiji/ fiji-linux64.zip
+   wget http://bigwww.epfl.ch/deconvolution/deconvolutionlab2/DeconvolutionLab_2-2.0.0.jar
+   mv DeconvolutionLab_2-2.0.0.jar /opt/fiji/Fiji.app/plugins/
+   wget http://bigwww.epfl.ch/deconvolution/deconvolutionlab2/FFTW.zip
+   unzip FFTW.zip
+   mv  FFTW  /opt/fiji/Fiji.app/plugins/
+   wget https://github.com/ImageScience/Maven/raw/public/org/imagescience/TransformJ_/4.1.0/TransformJ_-4.1.0.jar
+   mv TransformJ_-4.1.0.jar  /opt/fiji/Fiji.app/plugins/JTransforms_-4.1.0.jar
+   wget http://search.maven.org/remotecontent?filepath=com/github/wendykierp/JTransforms/3.1/JTransforms-3.1-with-dependencies.jar
+   mv *JTransforms-3.1-with-dependencies.jar /opt/fiji/Fiji.app/plugins/JTransforms-3.1-with-dependencies.jar        
+
