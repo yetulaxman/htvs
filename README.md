@@ -66,7 +66,7 @@ Launch  ImageJ/Fiji software in an interactive node as below:
 # start interactive node as below and choose your project name on prompt
 sinteractive  -c 4 -m 12000    # this will ask you to choose one project, choose project no.
                                # resource allocation is usually faster but may take sometime if interactive nodes are under heavy use
-
+```
 # Launch Fiji/Imagej container for analysis
 
 ```bash
