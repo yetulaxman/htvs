@@ -43,13 +43,19 @@ ssh yourcscusername@puhti.csc.fi
  
 ### Deploying ImageJ/Fiji on Puhti as an interactive job 
 
+Navigate to the scratch directiory on Puhti
+
+```
+cd  /scratch/project_xxxxx/
+
+```
+
 Download singularity Fiji/Imagej image from allas object storage as below:
 
 ```bash
 # Download singularity image from allas object storage
 wget https://a3s.fi/Fiji/fiji_tutorial.tar.gz
 tar -xavf fiji_tutorial.tar.gz
-cd fiji_tutorial
 ```
 
 Launch  ImageJ/Fiji software in an interactive node as below:
@@ -61,7 +67,7 @@ sinteractive  -c 4 -m 12000
 # Launch Fiji/Imagej container for analysis
 
 ```bash
-b="WellC003@/scratch/project_2001659/yetukuri/Michael_UTU/2019-02-27_001@10"
+b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"
 singularity_wrapper exec fiji_dec_plugins.sif  ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b
 
 ```
