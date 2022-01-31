@@ -64,7 +64,8 @@ Launch  ImageJ/Fiji software in an interactive node as below:
 
 ```bash
 # start interactive node as below and choose your project name on prompt
-sinteractive  -c 4 -m 12000
+sinteractive  -c 4 -m 12000    # this will ask you to choose one project, choose project no.
+                               # resource allocation is usually faster but may take sometime if interactive nodes are under heavy use
 
 # Launch Fiji/Imagej container for analysis
 
@@ -100,7 +101,7 @@ You can copy the following script to a file e.g., imagej.sh
 b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"
 singularity_wrapper exec fiji_dec_plugins.sif ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b                           
 ```
-submit yiur job 
+submit your job 
 
 ```bash
 sbatch imagej.sh
