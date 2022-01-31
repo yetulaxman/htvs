@@ -49,7 +49,6 @@ Navigate to the scratch directiory on Puhti
 
 ```
 cd  /scratch/project_xxxxx/
-
 ```
 
 Download singularity Fiji/Imagej image from allas object storage as below:
