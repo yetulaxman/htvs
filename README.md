@@ -40,6 +40,7 @@ ssh yourcscusername@puhti.csc.fi
 
  - If you're connecting to Puhti for the first time, SSH client will ask you whether you trust the authenticity of the host. You need to accept for the first time.
  - For light-weight graphic rendering, use X11-tunneling to your ssh-connection (On Mac and Linux) by adding `-X` or `-Y` to your command (on Windows, MobaXterm actually will tunnel the connection). For heavy graphic usage, you can consider using [Puhti web interface](https://docs.csc.fi/computing/webinterface/) or [Nomachine](https://docs.csc.fi/apps/nomachine/). 
+ - if you are windows user and wondering an easy way to login to Puhti, you can use [Puhti web interface](https://www.puhti.csc.fi/public/login.html). Once you successfully logged in Puhti web interface, navigate to `Tools` in menu bar and then click  `login node shell`
 
 You can deploy your job as an interactive or batch job as shown below:
  
