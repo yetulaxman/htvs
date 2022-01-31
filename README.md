@@ -43,7 +43,7 @@ ssh yourcscusername@puhti.csc.fi
 
 You can deploy your job as an interactive or batch job as shown below:
  
-### Option 1:Deploying ImageJ/Fiji on Puhti as an interactive job 
+### Option 1: Deploying ImageJ/Fiji on Puhti as an interactive job 
 
 Navigate to the scratch directiory on Puhti
 
@@ -74,7 +74,7 @@ singularity_wrapper exec fiji_dec_plugins.sif  ImageJ-linux64 --headless --conso
 
 ```
 
-### Deploying ImageJ/Fiji  on Puhti as a batch job 
+### Option 2:  Deploying ImageJ/Fiji  on Puhti as a batch job 
 
 Download singularity image from allas object storage as before
 
