@@ -67,7 +67,7 @@ Launch  ImageJ/Fiji software in an interactive node as below:
 sinteractive  -c 4 -m 12000    # this will ask you to choose one project, choose project no.
                                # resource allocation is usually faster but may take sometime if interactive nodes are under heavy use
 ```
-# Launch Fiji/Imagej container for analysis
+Launch Fiji/Imagej container for analysis
 
 ```bash
 cd fiji_tutorial
@@ -109,4 +109,8 @@ submit your job
 ```bash
 sbatch imagej.sh
 ```
+You can check your job status using the following command:
 
+```
+squeue -l -u $USER
+```
