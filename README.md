@@ -113,3 +113,4 @@ You can check your job status using the following command:
 ```
 squeue -l -u $USER
 ```
+This test case example would take about 10 minutes. 
