@@ -71,7 +71,7 @@ sinteractive  -c 4 -m 12000    # this will ask you to choose one project, choose
 
 ```bash
 cd fiji_tutorial
-b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"
+b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"    # replace correct project number for `project_xxxxx` in the path
 singularity_wrapper exec fiji_decon_plugins.sif  ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b
 
 ```
@@ -89,7 +89,7 @@ cd fiji_tutorial
 
 ```
 
-You can copy the following script to a file e.g., imagej.sh. Make sure to use proper project name in `imagej.sh` file (i.e., use your project number for  `project_xxxx` in SBATCH directives for `--account` value)   
+You can copy the following script to a file e.g., imagej.sh. Make sure to use proper project name in `imagej.sh` file (i.e., use your correct project number for  `project_xxxx` in 1) SBATCH directives for `--account` value and 2) `b` parameter )   
 
 ```bash
 #!/bin/bash
@@ -101,7 +101,7 @@ You can copy the following script to a file e.g., imagej.sh. Make sure to use pr
 #SBATCH --cpus-per-task=4
 #SBATCH --partition=small
 
-b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"
+b="WellC003@/scratch/project_xxxx/fiji_tutorial/2019-02-27_001@10"
 singularity_wrapper exec fiji_decon_plugins.sif ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b                           
 ```
 submit your job 
