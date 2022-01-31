@@ -72,7 +72,7 @@ sinteractive  -c 4 -m 12000    # this will ask you to choose one project, choose
 ```bash
 cd fiji_tutorial
 b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"
-singularity_wrapper exec fiji_dec_plugins.sif  ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b
+singularity_wrapper exec fiji_decon_plugins.sif  ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b
 
 ```
 
@@ -81,7 +81,7 @@ singularity_wrapper exec fiji_dec_plugins.sif  ImageJ-linux64 --headless --conso
 Download singularity image from allas object storage as before
 
 ```bash
-cd /scratch/project_xxxx/
+cd /scratch/project_xxxx/     # replace correct project number here
 # Download singularity image from allas object storage
 wget https://a3s.fi/Fiji/fiji_tutorial.tar.gz
 tar -xavf fiji_tutorial.tar.gz
@@ -89,12 +89,12 @@ cd fiji_tutorial
 
 ```
 
-You can copy the following script to a file e.g., imagej.sh. Make sure to use proper project name in `imagej.sh` file (i.e., update the right project number for  `project_xxxx` )   
+You can copy the following script to a file e.g., imagej.sh. Make sure to use proper project name in `imagej.sh` file (i.e., use your project number for  `project_xxxx` in SBATCH directives for `--account` value)   
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=myTest
-#SBATCH --account= project_xxxx
+#SBATCH --account=project_xxxx
 #SBATCH --time=02:00:00
 #SBATCH --mem-per-cpu=4G
 #SBATCH --ntasks=1
@@ -102,7 +102,7 @@ You can copy the following script to a file e.g., imagej.sh. Make sure to use pr
 #SBATCH --partition=small
 
 b="WellC003@/scratch/project_xxxxx/fiji_tutorial/2019-02-27_001@10"
-singularity_wrapper exec fiji_dec_plugins.sif ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b                           
+singularity_wrapper exec fiji_decon_plugins.sif ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b                           
 ```
 submit your job 
 
