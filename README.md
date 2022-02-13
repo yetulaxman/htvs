@@ -31,7 +31,7 @@ Please note that  a user of the software does not need to build a new image unle
 
 ## Log in to Puhti using SSH
 
-In order to login to Puhti supercomputer, one has to have [CSC account](https://docs.csc.fi/accounts/how-to-create-new-user-account/) and have access to [Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) under a project. Depending on your opertaing system of your workstation, please follow the instructions for connecting with SSH-client as described in [docs page](https://docs.csc.fi/computing/connecting/). For example, Linux workstations typically have SSH installed and simply open a terminal to issue the following command:
+In order to login to Puhti supercomputer, one has to have [CSC account](https://docs.csc.fi/accounts/how-to-create-new-user-account/) and have access to [Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) under a project. Depending on your opertaing system of your workstation, please follow the instructions for connecting with SSH-client as described in [docs page](https://docs.csc.fi/computing/connecting/). For example, Linux workstations typically have SSH installed and one can simply open a terminal to issue the following command:
 
 ```bash
 ssh yourcscusername@puhti.csc.fi
