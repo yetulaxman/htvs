@@ -12,7 +12,7 @@ One can build singularity image using the following command:
 sudo singularity build fiji_image.sif fiji-imageJ.def
 
 ```
-Please note that  a user of the software does not need to build a new image unless one needs to have a latest version or different plugins of the software are need. One can simply use the existing container as available in CSC [allas object storage](https://docs.csc.fi/data/Allas/) as described in the later section.
+Please note that  a user of the software does not need to build a new image unless one needs to have a latest version or different plugins of the software are need. One can simply use the existing container image instead as available in CSC [allas object storage](https://docs.csc.fi/data/Allas/) as described in the later section.
 
 ## Tools/Plugins in Fiji/ImageJ container
 
