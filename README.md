@@ -123,7 +123,7 @@ First you can creat a file  with Well names for different samples using for exam
 ```bash
 for well in Well{C..N}{003..022}; do echo $well ; done > well_names.txt  # change Well names as you wish
 ```
-and then use the following batch script that uses  slurm job arrays to submit multiple jobs at a time
+and then use the following batch script that uses  slurm job arrays to submit multiple (independent) jobs at a time
 
 ```bash
 #!/bin/bash
