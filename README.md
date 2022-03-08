@@ -115,3 +115,29 @@ You can check your job status using the following command:
 squeue -l -u $USER
 ```
 This test case example would take about 10 minutes. 
+
+### Working with multiple samples as slurm job arrays
+
+First you can creat a file with well names for different samples using for example using the following script:
+
+```
+for well in Well{C..N}{003..022}; do echo $well  done > well_names.txt
+```
+and then use the following batch script that uses  slurm job arrays to submit multiple jobs at a time
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=myTest
+#SBATCH --account=project_2001300
+#SBATCH --time=02:00:00
+#SBATCH --mem-per-cpu=4G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --partition=small
+#SBATCH --array=1-240%50 # submits 50 jobs at a time (Note: don't increase this number very much)
+
+well=$(sed -n "$SLURM_ARRAY_TASK_ID"p well_names.txt)
+
+b="$well@/scratch/project_xxxx/fiji_tutorial/2019-02-27_001@10"
+singularity_wrapper exec fiji_decon_plugins.sif ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b   
+```
