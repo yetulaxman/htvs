@@ -118,7 +118,7 @@ This test case example would take about 10 minutes.
 
 ### Working with multiple samples as slurm job arrays (when jobs are not too many small jobs)
 
-First you can creat a file  with Well names for different samples using for example using the following script:
+First you can creat a file  with Well names for different samples using for example the following script:
 
 ```bash
 for well in Well{C..N}{003..022}; do echo $well ; done > well_names.txt  # change Well names as you wish
