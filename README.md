@@ -116,7 +116,7 @@ squeue -l -u $USER
 ```
 This test case example would take about 10 minutes. 
 
-### Working with multiple samples as slurm job arrays (when jobs are not too many small jobs)
+### Working with multiple samples using slurm job arrays (when jobs are not too many small jobs)
 
 First you can creat a file  with Well names for different samples using for example the following script:
 
@@ -134,7 +134,7 @@ and then use the following batch script that uses  slurm job arrays to submit mu
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --partition=small
-#SBATCH --array=1-240%50 # submits 50 jobs at a time (Note: don't increase this number very much)
+#SBATCH --array=1-240%50  # keeps 50 jobs in queue (Note: don't increase this number very much)
 
 well=$(sed -n "$SLURM_ARRAY_TASK_ID"p well_names.txt)
 
