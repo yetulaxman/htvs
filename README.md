@@ -3,7 +3,7 @@ This version of singularity container is based on the chemprop (v1.3.1) software
 
 ### Build singularity image
 
-All dependent conda/pip packages needed for chemprop software are  compiled in environment.yaml file which is a slightly modified version of yaml file as availabe in the chemprop github repository. This is intended to work on GPU nodes on CSC HPC systems (Tested on Puhti and can work in Mahti/Lumi).
+All dependent conda/pip packages needed for chemprop software are  compiled in environment.yaml file which is a slightly modified version of yaml file as availabe in the chemprop github repository. This is intended to work on GPU nodes on CSC HPC systems (Tested on Mahti and can work in Puhti/Lumi).
 
 One can build singularity image using the following command:
 
