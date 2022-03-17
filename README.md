@@ -1,5 +1,5 @@
 ## Singularity container for [chemprop](https://github.com/chemprop/chemprop.git)  software
-This version of singularity container is based on the chemprop (v1.3.1) software as available in [conda-forge](https://anaconda.org/conda-forge/chemprop/) channel.
+This version of singularity container is based on the chemprop (v1.3.1) software which is slightly modified to compute cindex and is also compatible with tensorflow.
 
 ### Build singularity image
 
@@ -8,35 +8,40 @@ All dependent conda/pip packages needed for chemprop software are  compiled in e
 One can build singularity image using the following command:
 
 ```
-sudo singularity build chemprop_puhti_v1.3.1_final.sif chemprop.def
+sudo singularity build chemprop-v1.3.1-cindex.sif chemprop.def
 
 ```
 ### (Alternatively) Download chemprop singularity image from allas
 Download singularity image from allas object storage as below:
 ```
-wget https://a3s.fi/chemprop_singularity/chemprop_test.tar.gz
-tar -xavf chemprop_test.tar.gz 
-cd chemprop_test
+wget https://a3s.fi/chemprop_singularity/chemprop_cindex.tar.gz
+tar -xavf chemprop_cindex.tar.gz
+cd chemprop
 ```
 
 ### Testing chemprop singularity container on GPU node
 
-Access interactive GPU node ('gputest' partition) on Puhti for testing chemprop as below:
+Access interactive GPU node ('gputest' partition) on Mahti for testing chemprop as below:
 
 ```
-srun -A project_xxxx -p gputest --gres=gpu:v100:1,nvme:50 -t 15 -c 10 --mem 96G --pty bash
+srun -A project_2004075 -p gputest --gres=gpu:a100:1,nvme:50 -t 15 -c 10 --mem 96G --pty bash
 nvidia-smi
 ```
 
-Test if pytorch is loaded properly inside of container on GPU node
+Test if pytorch/tensorflow is loaded properly inside of container on GPU node
 
 ```
-cd chemprop_test
+cd chemprop
 singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif bash
 python3  # invoke python terminal
 import torch
 print(torch.cuda.is_available())
 print(torch.version.cuda)
+
+import tensorflow as tf
+print(tf.test.gpu_device_name())
+print(tf.config.get_visible_devices())
+
 #use control+D to come out of python terminal and then 'exit' command to come out of container
 
 ```
@@ -45,8 +50,9 @@ Finally test containerised chemprop software with a small dataset which is inclu
 
 ```
 # cd chemprop_test
-singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif chemprop_train --data_path data/tox21.csv --dataset_type classification --save_dir tox21_checkpoints --gpu 0
+singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
 
-# On GPU node, Elapsed time = 0:01:38
+singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex_fast --gpu 0 
+
 ```
 
