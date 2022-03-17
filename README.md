@@ -31,8 +31,8 @@ nvidia-smi
 Test if pytorch/tensorflow is loaded properly inside of container on GPU node
 
 ```
-cd chemprop
-singularity_wrapper exec --nv chemprop_puhti_v1.3.1_final.sif bash
+
+singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif bash
 python3  # invoke python terminal
 import torch
 print(torch.cuda.is_available())
