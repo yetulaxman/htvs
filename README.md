@@ -141,8 +141,8 @@ well=$(sed -n "$SLURM_ARRAY_TASK_ID"p well_names.txt)
 b="$well@/scratch/project_xxxx/fiji_tutorial/2019-02-27_001@10"
 singularity_wrapper exec fiji_decon_plugins.sif ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b   
 ```
-
-Note: You can open ImageJ GUI on Puhti Web Interface as below:
+## Open ImageJ GUI on Puhti Web Interface
+You can open ImageJ GUI on Puhti Web Interface as below:
 1. Login to [Puhti Web Interface](https://www.puhti.csc.fi/)
 2. Click "Desktop" app  and fill in all the details (use : interactive partition)
 3. Once you launch desktop app, you click terminal on desktop
