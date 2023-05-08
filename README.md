@@ -31,7 +31,7 @@ rocm-smi
 Test if pytorch/tensorflow is loaded properly inside of container on GPU node
 
 ```
-singularity_wrapper exec chemprop-lumi-multinode.sif bash
+singularity exec chemprop-lumi-multinode.sif bash
 python3  # invoke python terminal
 import torch
 import tensorflow as tf
@@ -46,4 +46,8 @@ Finally test containerised chemprop software with a small dataset which is inclu
 # cd chemprop_test
 singularity exec -B $PWD chemprop-lumi-multinode.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
 ```
-
+One can track the GPU load by accessing computing node:
+```bash
+srun --interactive --pty --jobid=3480330 bash
+rocm-smi
+```
