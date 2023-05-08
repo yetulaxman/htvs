@@ -24,7 +24,7 @@ cd chemprop
 Access interactive GPU node ('small-g' partition) on LUMI for testing chemprop as below:
 
 ```bash
-srun --account=project_462000007 --gpus-per-node=1 --partition=small-g --time=02:30:00 --nodes=1  --pty bash
+srun --account=project_xxxxx --gpus-per-node=1 --partition=small-g --time=02:30:00 --nodes=1  --pty bash
 rocm-smi
 ```
 
@@ -48,6 +48,6 @@ singularity exec -B $PWD chemprop-lumi-multinode.sif chemprop_train --data_path 
 ```
 One can track the GPU load by accessing computing node:
 ```bash
-srun --interactive --pty --jobid=3480330 bash
+srun --interactive --pty --jobid=xxxxx bash
 rocm-smi
 ```
