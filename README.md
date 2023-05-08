@@ -8,40 +8,35 @@ All dependent conda/pip packages needed for chemprop software are  compiled in e
 One can build singularity image using the following command:
 
 ```
-sudo singularity build chemprop-v1.3.1-cindex.sif chemprop.def
+sudo singularity build chemprop-lumi-multinode.sif Chemprop.def 
 
 ```
 ### (Alternatively) Download chemprop singularity image from allas
 Download singularity image from allas object storage as below:
 ```
-wget https://a3s.fi/chemprop_singularity/chemprop_cindex.tar.gz
-tar -xavf chemprop_cindex.tar.gz
+wget https://a3s.fi/chemprop_singularity/chemprop_lumi.tar.gz
+tar -xavf chemprop_lumi.tar.gz
 cd chemprop
 ```
 
 ### Testing chemprop singularity container on GPU node
 
-Access interactive GPU node ('gputest' partition) on Mahti for testing chemprop as below:
+Access interactive GPU node ('small-g' partition) on LUMI for testing chemprop as below:
 
-```
-srun -A project_2004075 -p gputest --gres=gpu:a100:1,nvme:50 -t 15 -c 10 --mem 96G --pty bash
-nvidia-smi
+```bash
+srun --account=project_462000007 --gpus-per-node=1 --partition=small-g --time=02:30:00 --nodes=1  --pty bash
+rocm-smi
 ```
 
 Test if pytorch/tensorflow is loaded properly inside of container on GPU node
 
 ```
 
-singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif bash
+singularity_wrapper exec chemprop-lumi-multinode.sif bash
 python3  # invoke python terminal
 import torch
-print(torch.cuda.is_available())
-print(torch.version.cuda)
-
 import tensorflow as tf
-print(tf.test.gpu_device_name())
-print(tf.config.get_visible_devices())
-
+tf.config.list_physical_devices('GPU')
 #use control+D to come out of python terminal and then 'exit' command to come out of container
 
 ```
@@ -50,9 +45,6 @@ Finally test containerised chemprop software with a small dataset which is inclu
 
 ```
 # cd chemprop_test
-singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
-
-singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex_fast --gpu 0 
-
+singularity exec -B $PWD chemprop-lumi-multinode.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
 ```
 
