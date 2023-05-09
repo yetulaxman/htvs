@@ -1,4 +1,4 @@
-## Singularity container for [chemprop](https://github.com/chemprop/chemprop.git)  software
+## LUMI-compatible Singularity container for [chemprop](https://github.com/chemprop/chemprop.git)  software
 This version of singularity container is based on the chemprop (v1.3.1) software which is slightly modified to compute cindex and is also compatible with tensorflow.
 
 ### Build singularity image
