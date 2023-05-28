@@ -11,3 +11,5 @@ ImageJ-linux64 --update add-update-site CSBDeep https://sites.imagej.net/CSBDeep
 ImageJ-linux64 --update add-update-site StarDist https://sites.imagej.net/StarDist/
 sudo singularity build fiji_decon_plugins_StarDist.sif fiji
 ```
+main page for different puggins:
+https://imagej.net/list-of-update-sites/
