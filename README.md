@@ -146,8 +146,13 @@ You can open ImageJ GUI on Puhti Web Interface as below:
 1. Login to [Puhti Web Interface](https://www.puhti.csc.fi/)
 2. Click "Desktop" app  and fill in all the details (use : interactive partition)
 3. Once you launch desktop app, you click terminal on desktop
-4. Navigate to folder where you have downloaded the singularity image (fiji_decon_plugins.sif; please note this image is in the folder you have downloaded from here: https://a3s.fi/Fiji/fiji_tutorial.tar.gz)
-4. Issue the following commands:
+4. Navigate to folder (e.g.,  cd /scratch/project_xxxx/$USER) to download the singularity images
 ```
-export SING_IMAGE=$PWD/fiji_decon_plugins.sif
+ wget https://a3s.fi/Fiji/imagej_eSRRF.sif
+ wget https://a3s.fi/Fiji/imagej_MSSR.sif
+```
+4. To launch GUI version of Imagej/Fiji, issue the following commands:
+```
+export SING_IMAGE=$PWD/imagej_MSSR.sif
 singularity_wrapper exec  ImageJ-linux64
+```
