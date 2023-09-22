@@ -154,5 +154,10 @@ You can open ImageJ GUI on Puhti Web Interface as below:
 4. To launch GUI version of Imagej/Fiji, issue the following commands:
 ```
 export SING_IMAGE=$PWD/imagej_MSSR.sif
-singularity_wrapper exec  ImageJ-linux64
+singularity_wrapper exec  ImageJ-linux64   # for GUI
+
+command for headless mode:
+b="WellC003@/scratch/project_xxxx/fiji_tutorial/2019-02-27_001@10"
+export SING_IMAGE=$PWD/imagej_MSSR.sif
+singularity_wrapper exec ImageJ-linux64 --headless --console -macro ./HeadlessDeconPassedPaths.ijm $b    
 ```
