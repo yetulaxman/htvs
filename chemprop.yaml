@@ -1,9 +1,0 @@
-# remove all installations from home: rm -fr ~/.local/*
-export TMPDIR="/scratch/project_2001659/yetukuri/chemprop/tmp"
-export LOCAL_HOST="/scratch/project_2001659/yetukuri/chemprop/tmp"
-module load git
-module load purge
-module load tykky
-mkdir /projappl/project_2001659/yetukuri
-mkdir /projappl/project_2001659/yetukuri/chemprop
-conda-containerize new --mamba  --prefix  /projappl/project_2001659/yetukuri/chemprop chemprop.yml
