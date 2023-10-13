@@ -31,8 +31,9 @@ nvidia-smi
 Test if pytorch/tensorflow is loaded properly inside of container on GPU node
 
 ```
-
-singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif bash
+export SING_IMAGE=$PWD/chemprop-1.3.1-tensorflow-cindex.sif
+export SING_FLAGS="--nv"
+# singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif bash
 python3  # invoke python terminal
 import torch
 print(torch.cuda.is_available())
@@ -49,10 +50,12 @@ print(tf.config.get_visible_devices())
 Finally test containerised chemprop software with a small dataset which is included in the allas dump
 
 ```
-# cd chemprop_test
-singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
+cd chemprop_test
+singularity_wrapper exec chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
 
-singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex_fast --gpu 0 
+# singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
+
+#singularity_wrapper exec --nv chemprop-1.3.1-tensorflow-cindex.sif chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex_fast --gpu 0 
 
 ```
 
