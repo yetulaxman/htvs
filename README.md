@@ -7,7 +7,7 @@ All dependent conda/pip packages needed for chemprop software are  compiled in c
 One can build singularity image using tykky with the following command:
 
 ```
-cd /scratch/project_xxx/$USERi/chemprop    # move to scratch area
+cd /scratch/project_xxx/$USER/chemprop    # move to scratch area
 sinteractive -c 32   # alternatively, use batch script. For bigger installations disk space error will be raised on login nodes
 bash install_chemprop.sh   
 ```
