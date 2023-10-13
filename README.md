@@ -2,7 +2,7 @@
 
 ### Build singularity image
 
-All dependent conda/pip packages needed for chemprop software are  compiled in chemprop.yaml file which is a slightly modified version of yaml file as availabe in the chemprop github repository. This is intended to work on GPU nodes on CSC HPC systems (Tested on Mahti and can work in Puhti/Lumi).
+All dependent conda/pip packages needed for chemprop software are  compiled in chemprop.yaml file which is a slightly modified version of yaml file as availabe in the chemprop github repository. This is intended to work on GPU nodes on CSC HPC systems (Tested on Mahti and can work in Puhti).
 
 One can build singularity image using tykky with the following command:
 
