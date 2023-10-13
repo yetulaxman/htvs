@@ -40,8 +40,10 @@ print(tf.config.get_visible_devices())
 Finally test containerised chemprop software with a small dataset which is included in the allas dump
 
 ```
-# cd chemprop_test
-singularity_wrapper exec chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
+wget https://a3s.fi/chemprop_singularity/data.tar.gz
+tar -xavf data.tar.gz
+
+chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
 
 ```
 
