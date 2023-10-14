@@ -30,6 +30,7 @@ import torch
 print(torch.version.cuda)
 
 import tensorflow as tf
+print("Tensorflow version: ", tf.__version__)
 print(tf.test.gpu_device_name())
 print(tf.config.get_visible_devices())
 
