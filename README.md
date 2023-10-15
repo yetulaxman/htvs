@@ -1,4 +1,4 @@
-### [chemprop](https://github.com/tonisi/chemprop.git)  software instalaltion with Tykky wrapper
+### [chemprop](https://github.com/tonisi/chemprop.git) software installation with Tykky wrapper
 
 All dependent conda/pip packages needed for chemprop software are added in chemprop.yaml file which is a slightly modified version of yaml file as availabe in the chemprop github repository.
 
