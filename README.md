@@ -5,8 +5,8 @@ All dependent conda/pip packages needed for chemprop software are added in chemp
 One can build container image using tykky in the following way:
 
 ```
-cd /scratch/project_xxx/$USER/chemprop    # move to scratch area
-sinteractive -c 32   # alternatively, you can use batch script. For bigger installations disk space error will be raised on login nodes.
+cd /scratch/project_xxx/$USER/chemprop    # just move to your own scratch area
+sinteractive -c 32   # start interactive session on Mahti. Alternatively, you can use batch script. For bigger installations disk space error will be raised on login nodes.
 bash install_chemprop.sh   
 ```
 
