@@ -32,7 +32,7 @@ print("Tensorflow version: ", tf.__version__)
 # print(tf.test.gpu_device_name())  # this is not detected at the moment
 # print(tf.config.get_visible_devices()) 
 
-#use control+D to come out of python terminal and then 'exit' command to come out of container
+#use control+D to come out of python terminal 
 
 ```
 Finally test containerised chemprop software with a small dataset which is included in the allas dump
