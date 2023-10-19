@@ -42,9 +42,6 @@ wget https://a3s.fi/chemprop_singularity/data.tar.gz
 tar -xavf data.tar.gz
 
 
-wget https://a3s.fi/chemprop_singularity/data.tar.gz
-tar -xavf data.tar.gz
-
 chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
 # you may use #gpusmall partition with more resources if needed
 chemprop_hyperopt --data_path data/lipo.csv --dataset_type regression --num_iters 6 --config_save_path hyperopt_config.json --gpu 0
