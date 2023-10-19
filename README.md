@@ -41,9 +41,9 @@ Finally test containerised chemprop software with a small dataset which is inclu
 wget https://a3s.fi/chemprop_singularity/data.tar.gz
 tar -xavf data.tar.gz
 
+export SING_IMAGE=$PWD/chemprop.sif 
+export SING_FLAGS="--nv"
+singularity_wrapper exec chemprop_hyperopt --data_path data/lipo.csv --dataset_type regression --num_iters 6 --config_save_path hyperopt_config.json --gpu 0
 
-chemprop_train --data_path data/lipo.csv --dataset_type regression --save_dir lipo_checkpoints --extra_metrics cindex --gpu 0
-# you may use #gpusmall partition with more resources if needed
-chemprop_hyperopt --data_path data/lipo.csv --dataset_type regression --num_iters 6 --config_save_path hyperopt_config.json --gpu 0
 ```
 
