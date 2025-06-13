@@ -1,33 +1,13 @@
+# Deploy a BioBB notebook application on LUMI Open OnDemand 
+This is a rough notes or recipe for porting a BioBB notebook on LUMI OoD. The example BioBB notebook is from Protein MD Setup tutorial (https://github.com/bioexcel/biobb_wf_md_setup). 
 
-webiste for LUMI OoD:
-https://github.com/bioexcel/biobb_wf_md_setup
+LUMI OoD applications/Notebooks are based on module environments (or binary paths) created on LUMI.  The module files are located on /projappl/project_xxxx/www_lumi_modules/. There should be a .lua file corresponding to a application.
+
+The OoD  application can be easily created from a existing container (either singularity or docker) or even from a pip/conda environment file (e.g., environment.yaml). For biobb_wf_md_setup, the [.yaml file](https://github.com/bioexcel/biobb_wf_protein-complex_md_setup/blob/2f863bd07732cb7b52200f50499e0771c95a60a7/conda_env/environment.yml)  was used to build a container as below on Puhti:
 
 Build container on Puhti:
 
-```
-Bootstrap : docker
-From :  continuumio/miniconda3
-IncludeCmd : yes
 
-%labels
-AUTHOR email@email.com
-
-%files
-environemnt.yml
-
-%post
-apt-get update && apt-get install -y procps && apt-get clean -y
-/opt/conda/bin/conda env create -n biobb_wf_md_setup_env -f /environemnt.yml
-/opt/conda/bin/conda clean -a
-
-%environment
-export PATH=/opt/conda/bin:$PATH
-. /opt/conda/etc/profile.d/conda.sh
-conda activate biobb_wf_md_setup_env
-
-%runscript
-echo "This is an example script for building singularity/appatainer image"
-```
 Get yaml file from here: https://github.com/bioexcel/biobb_wf_protein-complex_md_setup/blob/2f863bd07732cb7b52200f50499e0771c95a60a7/conda_env/environment.yml
 
 build the container :
