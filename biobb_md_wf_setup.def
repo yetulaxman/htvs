@@ -1,0 +1,23 @@
+
+Bootstrap : docker
+From :  continuumio/miniconda3
+IncludeCmd : yes
+
+%labels
+AUTHOR email@email.com
+
+%files
+environemnt.yml
+
+%post
+apt-get update && apt-get install -y procps && apt-get clean -y
+/opt/conda/bin/conda env create -n biobb_wf_md_setup_env -f /environemnt.yml
+/opt/conda/bin/conda clean -a
+
+%environment
+export PATH=/opt/conda/bin:$PATH
+. /opt/conda/etc/profile.d/conda.sh
+conda activate biobb_wf_md_setup_env
+
+%runscript
+echo "This is an example script for building singularity/appatainer image"
