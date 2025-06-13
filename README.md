@@ -5,7 +5,7 @@ LUMI OoD applications/Notebooks are based on module environments (or binary path
 
 The OoD  application can be easily created from a existing container (either singularity or docker) or even from a pip/conda environment file (e.g., environment.yaml). 
 
-1. Build a container from yaml file or use existing container image
+## Build a container from yaml file or use existing container image
 
 For biobb_wf_md_setup, the [.yaml file](https://github.com/bioexcel/biobb_wf_protein-complex_md_setup/blob/2f863bd07732cb7b52200f50499e0771c95a60a7/conda_env/environment.yml)  was used to build a container as below on Puhti as below:
 
@@ -19,9 +19,8 @@ The image is uploaded to allas object storage and can be obtained as below:
 wget https://a3s.fi/biobb/biobb_wf_md_setup.sif
 ```
 
-lua file:
-
-
+##  Install the Protein MD Setup on LUMI based on the built container
+   
 tykky file on LUMI:
 ```
 module load purge
