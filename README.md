@@ -31,4 +31,12 @@ wrap-container -w /opt/conda/envs/biobb_wf_md_setup_env/bin biobb_wf_md_setup.si
 The above container wrapper command will install the software in the path : /projappl/project_465001676/yetukuri/biobb_md.
 
 ## Build lua file for LUMI OoD 
-The module files are located on /projappl/project_xxxx/www_lumi_modules/. There should be a .lua file corresponding to a application. The example lua file for this application is 
+
+The module files are located on /projappl/project_xxxx/www_lumi_modules/. There should be a .lua file corresponding to a application. The example lua file for this application is available in this GitHub repository (biobb_wf_md.lua). One can also check the default resource file in that directory.
+
+## Launch the installed Jupyter notebook from the Puhti web interface
+
+1. Login to [LUMI web interface](https://www.lumi.csc.fi) via CSC/HAKA/VIRTU credentials 
+2. Once login is successful, select "Interactive Sessions" on the top menu bar and then click "Jupyter for courses". On the right-hand side you can see the different fields for selection before launching a job. Here, the Gromacs MD set up is now available under “Jupyter for courses” ( under our project_46200007/ lumi user support project and module “biobb_wf_md”) in LUMI web interface
+3. Upon successful launching a job, you can click on "Connect to Jupyter" to see the course notebook corresponding to your course environment 
+
