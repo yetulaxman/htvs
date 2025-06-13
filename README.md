@@ -1,25 +1,27 @@
-# Deploying a BioBB notebook application on LUMI Open OnDemand 
-This is a rough notes or recipe for porting a BioBB notebook on LUMI OoD. The example BioBB notebook is from [Protein MD Setup tutorial](https://github.com/bioexcel/biobb_wf_md_setup). LUMI OoD applications/Notebooks are based on module environments (or binary paths) created on LUMI.  
+# Deploying a BioBB Notebook Application on LUMI Open OnDemand (OoD)
+This document serves as a practical guide or "recipe" for porting a BioBB Jupyter Notebook application to the LUMI Open OnDemand (OoD) environment. The example used here is from [Protein MD Setup tutorial](https://github.com/bioexcel/biobb_wf_md_setup). LUMI OoD applications/Notebooks are based on module environments (or binary paths) created on LUMI.  
 
-The OoD  application can be easily created from a existing container (either singularity or docker) or even from a pip/conda environment file (e.g., environment.yaml). 
+LUMI OoD applications are typically based on module environments or explicitly defined binary paths. These can originate from a container image (e.g., Singularity/Docker) or an environment specification (e.g., environment.yaml).
 
-## 1. Build a container from yaml file or use existing container image
+### 1. Build or Use a an Existing Container
 
-For biobb_wf_md_setup, the [.yaml file](https://github.com/bioexcel/biobb_wf_protein-complex_md_setup/blob/2f863bd07732cb7b52200f50499e0771c95a60a7/conda_env/environment.yml)  was used to build a container as below on Puhti as below:
+A container for the biobb_wf_md_setup notebook can be built from an existing environment.yaml file.
+
+The example uses [this environment YAML](https://github.com/bioexcel/biobb_wf_protein-complex_md_setup/blob/2f863bd07732cb7b52200f50499e0771c95a60a7/conda_env/environment.yml) to build a Singularity image as below:
 
 ```
 singularity build --fakeroot biobb_wf_md_setup.sif biobb_wf_md_setup.def
 ```
-The definition (i.e., biobb_wf_md_setup.def) is available in this GitHub.
+The corresponding Singularity definition file (biobb_wf_md_setup.def) is available in the repository.
 
-The image is uploaded to allas object storage and can be obtained as below:
+Alternatively, download the prebuilt container directly from Allas object storage:
 ```
 wget https://a3s.fi/biobb/biobb_wf_md_setup.sif
 ```
 
-## 2. Install the BioBB Protein MD Setup on LUMI based on the built container
-   
-Use [lumi-container-wrapper](https://docs.csc.fi/computing/containers/tykky/) (aka tykky wrapper at CSC) to install the  Protein MD Setup on LUMI as below:
+### 2.  Install the BioBB MD Setup on LUMI Using the Container Image
+
+Use CSC's [lumi-container-wrapper](https://docs.csc.fi/computing/containers/tykky/) (AKA., tykky) tool to wrap the container and make it usable within LUMI’s module system:
 
 ```
 module load purge
@@ -30,11 +32,11 @@ wrap-container -w /opt/conda/envs/biobb_wf_md_setup_env/bin biobb_wf_md_setup.si
 ```
 The above container wrapper command will install the software in the path : /projappl/project_465001676/yetukuri/biobb_md.
 
-## 3. Build lua file for LUMI OoD 
+### 3. Create a .lua Module File for OoD
 
-The module files are located on /projappl/project_xxxx/www_lumi_modules/. There should be a .lua file corresponding to a application. The example lua file for this application is available in this GitHub repository (biobb_wf_md.lua). One can also check the default resource file in that directory.
+Create a .lua module file corresponding to your application. An example file (biobb_wf_md.lua) is provided in the GitHub repository. You can also refer to the default resource files in the same directory.
 
-## 4. Launch the installed Jupyter notebook from the Puhti web interface
+### 4. Launch the installed Jupyter notebook from the Puhti web interface
 
 1. Login to [LUMI web interface](https://www.lumi.csc.fi) via CSC/HAKA/VIRTU credentials 
 2. Once login is successful, select "Interactive Sessions" on the top menu bar and then click "Jupyter for courses". On the right-hand side you can see the different fields for selection before launching a job. Here, the Gromacs MD set up is now available under “Jupyter for courses” ( under our project_46200007/ lumi user support project and module “biobb_wf_md”) in LUMI web interface
