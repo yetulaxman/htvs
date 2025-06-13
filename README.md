@@ -1,48 +1,66 @@
-# Optimise HTVS workflows
-Optimise batch script(s) for pre-processing of large amounts of ligand data available in public databases such as ZINC and Pubchem etc.
 
-## Ligprep pipeline parallelisation with production flags
+webiste for LUMI OoD:
+https://github.com/bioexcel/biobb_wf_md_setup
 
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch htvs_pipeline.sh
+Build container on Puhti:
 
 ```
+Bootstrap : docker
+From :  continuumio/miniconda3
+IncludeCmd : yes
 
-to view the resuts
+%labels
+AUTHOR email@email.com
+
+%files
+environemnt.yml
+
+%post
+apt-get update && apt-get install -y procps && apt-get clean -y
+/opt/conda/bin/conda env create -n biobb_wf_md_setup_env -f /environemnt.yml
+/opt/conda/bin/conda clean -a
+
+%environment
+export PATH=/opt/conda/bin:$PATH
+. /opt/conda/etc/profile.d/conda.sh
+conda activate biobb_wf_md_setup_env
+
+%runscript
+echo "This is an example script for building singularity/appatainer image"
+```
+Get yaml file from here: https://github.com/bioexcel/biobb_wf_protein-complex_md_setup/blob/2f863bd07732cb7b52200f50499e0771c95a60a7/conda_env/environment.yml
+
+build the container :
 
 ```
-ls -l data_SMILES
-```
-## simple test case with parallelisation
-
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch htvs_parallel.sh
-
+singularity build --fakeroot biobb_wf_md_setup.sif biobb_wf_md_setup.def
 ```
 
-to view the resuts
-
+image is availbale here:
 ```
-ls -l data/*.mae
-```
-> Note: This batch script can also  work if you request local fast drive in slurm directives(--gres=nvme:10) 
-## simple test case with  Nextflow approach
-
-
-```
-git clone https://github.com/yetulaxman/htvs.git
-cd htvs
-sbatch job_nf.sh 
+wget https://a3s.fi/biobb/biobb_wf_md_setup.sif
 ```
 
-to view the resuts
+lua file:
 
 ```
-ls -l results_mae/
+-- Jupyter
+prepend_path("PATH", "/projappl/project_465001676/yetukuri/biobb_md/bin")
+
+setenv("_COURSE_BASE_NAME","biobb-wf")
+setenv("_COURSE_NOTEBOOK","biobb_wf_md_setup/biobb_wf_md_setup/notebooks/biobb_wf_md_setup.ipynb")
+setenv("_COURSE_GIT_REPO","https://github.com/bioexcel/biobb_wf_md_setup")
+setenv("_COURSE_GIT_REF","")
+setenv("_COURSE_NOTEBOOK_TYPE", "notebook")
 ```
+
+tykky file on LUMI:
+```
+module load purge
+module load LUMI
+module load lumi-container-wrapper
+
+mkdir /projappl/project_465001676/yetukuri/biobb_md
+wrap-container -w /opt/conda/envs/biobb_wf_md_setup_env/bin biobb_wf_md_setup.sif --prefix /projappl/project_465001676/yetukuri/biobb_md
+```
+
