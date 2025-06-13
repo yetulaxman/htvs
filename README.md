@@ -1,7 +1,5 @@
-# Deploy a BioBB notebook application on LUMI Open OnDemand 
-This is a rough notes or recipe for porting a BioBB notebook on LUMI OoD. The example BioBB notebook is from [Protein MD Setup tutorial](https://github.com/bioexcel/biobb_wf_md_setup). 
-
-LUMI OoD applications/Notebooks are based on module environments (or binary paths) created on LUMI.  The module files are located on /projappl/project_xxxx/www_lumi_modules/. There should be a .lua file corresponding to a application.
+# Deploying a BioBB notebook application on LUMI Open OnDemand 
+This is a rough notes or recipe for porting a BioBB notebook on LUMI OoD. The example BioBB notebook is from [Protein MD Setup tutorial](https://github.com/bioexcel/biobb_wf_md_setup). LUMI OoD applications/Notebooks are based on module environments (or binary paths) created on LUMI.  
 
 The OoD  application can be easily created from a existing container (either singularity or docker) or even from a pip/conda environment file (e.g., environment.yaml). 
 
@@ -19,15 +17,18 @@ The image is uploaded to allas object storage and can be obtained as below:
 wget https://a3s.fi/biobb/biobb_wf_md_setup.sif
 ```
 
-##  Install the Protein MD Setup on LUMI based on the built container
+##  Install the BioBB Protein MD Setup on LUMI based on the built container
    
-tykky file on LUMI:
+Use [lumi-container-wrapper](https://docs.csc.fi/computing/containers/tykky/) (aka tykky wrapper at CSC) to install the  Protein MD Setup on LUMI as below:
+
 ```
 module load purge
 module load LUMI
 module load lumi-container-wrapper
-
 mkdir /projappl/project_465001676/yetukuri/biobb_md
 wrap-container -w /opt/conda/envs/biobb_wf_md_setup_env/bin biobb_wf_md_setup.sif --prefix /projappl/project_465001676/yetukuri/biobb_md
 ```
+The above container wrapper command will install the software in the path : /projappl/project_465001676/yetukuri/biobb_md.
 
+## Build lua file for LUMI OoD 
+The module files are located on /projappl/project_xxxx/www_lumi_modules/. There should be a .lua file corresponding to a application. The example lua file for this application is 
