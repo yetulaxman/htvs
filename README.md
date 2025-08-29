@@ -13,12 +13,14 @@ sinteractive -c 32  # Launches an interactive shell on a compute node with 32 co
 ```
 
 ### Step 3: Set Singularity Cache and Temp Directories
+
+When pulling bigger images from container registries, /tmp or $HOME directories can be quickly filled up. Reset default lcoations of Singularity to use the current working directory for temporary and cache files.
 ```bash
 export SINGULARITY_TMPDIR=$PWD
 export SINGULARITY_CACHEDIR=$PWD
 ```
 ### Step 4: Build the Container from Docker
-
+Pull the BET image from dockerHub as below:
 ```bash
 singularity build bet.sif docker://bids/example
 ```
