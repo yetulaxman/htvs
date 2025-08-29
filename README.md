@@ -1,9 +1,6 @@
 # BET Workflow with Singularity on Mahti
 
-Following example from https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/bids_containers.html#betcontainer, here is a small tutorial that would work e.g., on Mahti.   CPU-based container would work smoothly
-also on LUMI.
-
-Follow our [CSC instructions](https://docs.csc.fi/computing/connecting/ssh-keys/) to login to the /scratch area of Mahti.  This tutorial prvides an interactive way of running the job. But when jobs get intensive, please use batch jobs instead. 
+Follow our [CSC instructions](https://docs.csc.fi/computing/connecting/ssh-keys/) to login to Mahti and navigate to the /scratch area of your project.  This tutorial offers an interactive way of running the example job based on the instructions [from BIDS containers](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/bids_containers.html#betcontainer). When jobs get intensive due to large datasets, please use batch jobs instead. **Note** that this tutorial is based on CPU-based container which would also work smoothly on LUMI.
 
 ### Step 1: Download and Extract the Dataset
 ```bash
