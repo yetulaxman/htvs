@@ -8,7 +8,7 @@ also on LUMI.
 wget https://osf.io/download/yz68t
 unzip yz68t
 ```
-### step 2: Start an Interactive HPC Session
+### step 2: Start an Interactive HPC Session on Mahti
 ```bash
 sinteractive -c 32  # Launches an interactive shell on a compute node with 32 cores.
 ```
