@@ -18,12 +18,12 @@ sinteractive -c 32  # Launches an interactive shell on a compute node with 32 co
 export SINGULARITY_TMPDIR=$PWD
 export SINGULARITY_CACHEDIR=$PWD
 ```
-### Step 4: (Optional) Build the Container from Docker
+### Step 4: Build the Container from Docker
 
 ```bash
 singularity build bet.sif docker://bids/example
 ```
-### Step 5: Move the Container Image (Optional)
+### Step 5: Move the Container Image 
 
 ```bash
 mv bet.sif MRIS/
