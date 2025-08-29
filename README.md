@@ -1,5 +1,7 @@
 # BET Workflow with Singularity on Mahti
 
+Following example from https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/bids_containers.html#betcontainer, here is a small tutorial that would work e.g., on Mahti.   CPU-based container can perhaps work smoothly
+also on LUMI.
 
 ### Step 1: Download and Extract the Dataset
 ```bash
